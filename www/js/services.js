@@ -67,6 +67,6 @@ angular.module('starter.services', [])
 
 }).factory('Config', [function() {
         var self = this;
-        self.baseurl     = 'http://192.168.0.103:8000/api/v1/';
+        self.baseurl     = 'http://93.188.163.202:8000/api/v1/';
         return self;
     }]);
