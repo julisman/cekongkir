@@ -16,4 +16,7 @@ HOW TO USE ?
 * ionic build android 
 
 
+DEMO 
+please install cekongkir.apk on your android device
+
 
