@@ -1,0 +1,62 @@
+<ion-view view-title="Cek Ongkir">
+  <ion-content class="padding">
+      <div class="list">
+          <label class="item item-input item-stacked-label">
+              <span class="input-label">Kota Asal</span>
+              <select   ng-model="data.origin" data-ng-if="datkota" class="col-10">
+                  <option ng-repeat="(k, v) in datkota" value="{{v.city_id}}" >{{ v.city_name }}</option>
+              </select>
+              <p data-ng-if="!datkota&&!error.messsage">Tunggu sebentar...</p>
+              <p data-ng-if="error.messsage">{{ error.messsage }}</p>
+          </label>
+          <label class="item item-input item-stacked-label">
+              <span class="input-label">Kota Tujuan</span>
+              <select   ng-model="data.destination" data-ng-if="datkota" class="col-10">
+                  <option ng-repeat="(k, v) in datkota" value="{{v.city_id}}" >{{ v.city_name }}</option>
+              </select>
+              <p data-ng-if="!datkota&&!error.messsage">Tunggu sebentar...</p>
+              <p data-ng-if="error.messsage">{{ error.messsage }}</p>
+          </label>
+          <label class="item item-input item-stacked-label">
+              <span class="input-label">Berat Kiriman (Gram)</span>
+              <input type="text" placeholder="Satuan Gram" ng-model="data.weight" >
+          </label><br>
+          <button class="button button-positive " data-ng-click="cekongkir()" data-ng-disabled="!data.origin || !data.destination || !data.weight ">
+             Cek Ongkir
+          </button>
+      </div>
+      <div class="card">
+          <div class="item item-text-wrap" data-ng-repeat="(k,v) in dataongkir[0]['costs']" data-ng-if="dataongkir[0]['costs'].length">
+              <div class="row">
+                  <div class="col"><b>POS</b><br>{{ dataongkir[0]['name'] }}</div>
+                  <div class="col">{{ v.service }}<br>{{ v.description }}</div>
+                  <div class="col">{{ v.cost[0]['value'] }}</div>
+              </div>
+          </div>
+          <div class="item item-text-wrap" data-ng-repeat="(k,v) in dataongkir[1]['costs']" data-ng-if="dataongkir[1]['costs'].length">
+              <div class="row">
+                  <div class="col"><b>JNE</b><br>{{ dataongkir[1]['name'] }}</div>
+                  <div class="col">{{ v.service }}<br>{{ v.description }}</div>
+                  <div class="col">{{ v.cost[0]['value'] }}</div>
+              </div>
+          </div>
+          <div class="item item-text-wrap" data-ng-repeat="(k,v) in dataongkir[2]['costs']" data-ng-if="dataongkir[2]['costs'].length">
+              <div class="row">
+                  <div class="col"><b>TIKI</b><br>{{ dataongkir[2]['name'] }}</div>
+                  <div class="col">{{ v.service }}<br>{{ v.description }}</div>
+                  <div class="col">{{ v.cost[0]['value'] }}</div>
+              </div>
+          </div>
+      </div>
+  </ion-content>
+</ion-view>
+<script id="my-modal.html" type="text/ng-template">
+    <ion-modal-view>
+        <ion-header-bar>
+            <h1 class="title">My Modal title</h1>
+        </ion-header-bar>
+        <ion-content>
+            Hello!
+        </ion-content>
+    </ion-modal-view>
+</script>
