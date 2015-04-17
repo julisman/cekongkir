@@ -3,7 +3,7 @@
       <div class="list">
           <label class="item item-input item-stacked-label">
               <span class="input-label">Kota Asal</span>
-              <select   ng-model="data.origin" data-ng-if="datkota" class="col-10">
+              <select   ng-model="data.origin" data-ng-if="datkota" class="col-50">
                   <option ng-repeat="(k, v) in datkota" value="{{v.city_id}}" >{{ v.city_name }}</option>
               </select>
               <p data-ng-if="!datkota&&!error.messsage">Tunggu sebentar...</p>
@@ -11,7 +11,7 @@
           </label>
           <label class="item item-input item-stacked-label">
               <span class="input-label">Kota Tujuan</span>
-              <select   ng-model="data.destination" data-ng-if="datkota" class="col-10">
+              <select   ng-model="data.destination" data-ng-if="datkota" class="col-50">
                   <option ng-repeat="(k, v) in datkota" value="{{v.city_id}}" >{{ v.city_name }}</option>
               </select>
               <p data-ng-if="!datkota&&!error.messsage">Tunggu sebentar...</p>
